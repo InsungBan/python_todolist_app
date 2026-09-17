@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:python_todolist_app/view/add_todolist.dart';
 
 class QueryTodolist extends StatefulWidget {
   const QueryTodolist({super.key});
@@ -16,9 +18,7 @@ class _QueryTodolistState extends State<QueryTodolist> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
-              //
-            }, 
+            onPressed: () => Get.to(AddTodolist()),
             icon: Icon(Icons.add_outlined),
           ),
         ],
