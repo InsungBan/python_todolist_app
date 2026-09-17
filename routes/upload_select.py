@@ -21,13 +21,13 @@ def connect():
 @app.post("/upload")
 async def upload(
     content: str = Form(...),
-    insertdate: str = Form(
-        default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    ),
+    insertdate: str = Form(None),
     file: UploadFile = File(...),
 ):
     conn = None
     try:
+        if not insertdate:
+            insertdate = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         image_data = await file.read()
         conn = connect()
         with conn.cursor() as curs:
@@ -114,7 +114,7 @@ async def delete_todo(seq: int):
             conn.close()
 
 
+
 if __name__ == "__main__":
     import uvicorn
-
-    uvicorn.run(app, host="192.168.10.39", port=8000)
+uvicorn.run(app, host="192.168.10.39", port=8000)

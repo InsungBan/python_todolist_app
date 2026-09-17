@@ -10,6 +10,19 @@ class QueryTodolist extends StatefulWidget {
 class _QueryTodolistState extends State<QueryTodolist> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Todo List 검색'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              //
+            }, 
+            icon: Icon(Icons.add_outlined),
+          ),
+        ],
+      ),
+    );
   }
 }
